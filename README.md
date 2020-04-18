@@ -24,3 +24,4 @@ sudo cp ubuntu.css.bak ubuntu.css
 GDM THEMES:
 * I made changes to the ubuntu.css file to annotate my theme.
 * Most of the images are obtained from [this repository](https://github.com/i-mint/midnight).
+* The contents of `gtk-2.0`, `gtk-3.0` and `gnome-shell` are actually archive copies of the midnight theme and were obtained from the same repository as above.
