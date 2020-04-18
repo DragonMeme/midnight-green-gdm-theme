@@ -1,4 +1,4 @@
-# midnight-green-theme
+# Midnight Ubuntu Theme
 ## Files:
 * gdm-theme - Contains the theming of my GDM (Gnome Display Manager). 
 
