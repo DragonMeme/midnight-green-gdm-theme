@@ -3,7 +3,7 @@
 * gdm-theme - Contains the theming of my GDM (Gnome Display Manager). 
 
 ## Installation:
-### GDM-THEME
+### gdm-theme
 1.) You may want to make a backup copy of your ubuntu.css in the theme folder.
 ```bash
 cd /usr/share/gnome-shell/theme
@@ -21,6 +21,6 @@ sudo cp ubuntu.css.bak ubuntu.css
 ```
 
 ## Disclaimer
-GDM THEMES:
+### gdm-theme:
 * I made changes to the ubuntu.css file to annotate my theme.
 * Most of the images are obtained from [this repository](https://github.com/i-mint/midnight).
