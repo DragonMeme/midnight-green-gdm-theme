@@ -1,0 +1,196 @@
+-- vim: ts=4 sw=4 noet ai cindent syntax=lua
+--[[
+Conky, a system monitor, based on torsmo
+
+Any original torsmo code is licensed under the BSD license
+
+All code written since the fork of torsmo is licensed under the GPL
+
+Please see COPYING for details
+
+Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
+Copyright (c) 2005-2012 Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
+All rights reserved.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+]]
+
+conky.config = {
+    alignment = 'top_left',
+    background = true,
+    border_width = 1,
+    cpu_avg_samples = 2,
+	default_color = '#00c848',
+    default_outline_color = 'white',
+    default_shade_color = 'white',
+    draw_borders = true,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = false,
+    use_xft = true,
+    font = 'Ubuntu:bold:size=12',
+    gap_x = 5,
+    gap_y = 40,
+    minimum_height = 5,
+	minimum_width = 300,
+    net_avg_samples = 2,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_type = 'desktop',
+    stippled_borders = 0,
+    update_interval = 0.5,
+    uppercase = false,
+    use_spacer = 'none',
+    show_graph_scale = false,
+    show_graph_range = false
+}
+
+conky.text = [[
+SYSTEM $hr
+Name: ${color cyan}$nodename${color}
+Kernel: ${color #dddddd}$kernel $machine${color}
+Uptime: ${color #dddddd}$Uptime_short${color}
+
+RAM $hr
+Used: \
+${if_match $memperc > 75}${color red}${else}\
+${if_match $memperc > 50}${color orange}${else}\
+${if_match $memperc > 25}${color yellow}${else}\
+${color green}\
+${endif}${endif}${endif}\
+$mem/$memmax${color}
+Percentage: \
+${if_match $memperc > 75}${color red}${else}\
+${if_match $memperc > 50}${color orange}${else}\
+${if_match $memperc > 25}${color yellow}${else}\
+${color green}\
+${endif}${endif}${endif}\
+$memperc%
+${membar 6}${color}
+
+STORAGE $hr
+Root: ${color #dddddd}${fs_used /}/${fs_size /} 
+${fs_bar 6 /}${color}
+Home: ${color #dddddd}${fs_used /home}/${fs_size /home} 
+${fs_bar 6 /home}${color}
+
+NETWORK $hr
+Wireless:
+- Upload: $alignr ${color #dddddd}${upspeed wlp0s20f3}
+${upspeedgraph wlp0s20f3 40}${color}
+- Download:$alignr  ${color #dddddd}${downspeed wlp0s20f3}
+${downspeedgraph wlp0s20f3 40}${color}
+
+CPU $hr
+Frequency: ${color #dddddd}$freq MHz${color}
+CORE     USED     BAR
+${if_match ${cpu cpu1} > 75}${color red}${else}\
+${if_match ${cpu cpu1} > 50}${color orange}${else}\
+${if_match ${cpu cpu1} > 25}${color yellow}${else}\
+${color green}\
+${endif}${endif}${endif}\
+1${tab 40,start}\
+${cpu cpu1}%${tab 80 start}${cpubar cpu1 12}${color}\
+ 
+${if_match ${cpu cpu2} > 75}${color red}${else}\
+${if_match ${cpu cpu2} > 50}${color orange}${else}\
+${if_match ${cpu cpu2} > 25}${color yellow}${else}\
+${color green}\
+${endif}${endif}${endif}\
+2${tab 40,start}\
+${cpu cpu2}%${tab 80 start}${cpubar cpu2 12} ${color}\
+
+${if_match ${cpu cpu3} > 75}${color red}${else}\
+${if_match ${cpu cpu3} > 50}${color orange}${else}\
+${if_match ${cpu cpu3} > 25}${color yellow}${else}\
+${color green}\
+${endif}${endif}${endif}\
+3${tab 40,start}\
+${cpu cpu3}%${tab 80 start}${cpubar cpu3 12} ${color}\
+
+${if_match ${cpu cpu4} > 75}${color red}${else}\
+${if_match ${cpu cpu4} > 50}${color orange}${else}\
+${if_match ${cpu cpu4} > 25}${color yellow}${else}\
+${color green}\
+${endif}${endif}${endif}\
+4${tab 40,start}\
+${cpu cpu4}%${tab 80 start}${cpubar cpu4 12} ${color}\
+
+${if_match ${cpu cpu5} > 75}${color red}${else}\
+${if_match ${cpu cpu5} > 50}${color orange}${else}\
+${if_match ${cpu cpu5} > 25}${color yellow}${else}\
+${color green}\
+${endif}${endif}${endif}\
+5${tab 40,start}\
+${cpu cpu5}%${tab 80 start}${cpubar cpu5 12} ${color}\
+
+${if_match ${cpu cpu6} > 75}${color red}${else}\
+${if_match ${cpu cpu6} > 50}${color orange}${else}\
+${if_match ${cpu cpu6} > 25}${color yellow}${else}\
+${color green}\
+${endif}${endif}${endif}\
+6${tab 40,start}\
+${cpu cpu6}%${tab 80 start}${cpubar cpu6 12} ${color}\
+
+${if_match ${cpu cpu7} > 75}${color red}${else}\
+${if_match ${cpu cpu7} > 50}${color orange}${else}\
+${if_match ${cpu cpu7} > 25}${color yellow}${else}\
+${color green}\
+${endif}${endif}${endif}\
+7${tab 40,start}\
+${cpu cpu7}%${tab 80 start}${cpubar cpu7 12} ${color}\
+
+${if_match ${cpu cpu8} > 75}${color red}${else}\
+${if_match ${cpu cpu8} > 50}${color orange}${else}\
+${if_match ${cpu cpu8} > 25}${color yellow}${else}\
+${color green}\
+${endif}${endif}${endif}\
+8${tab 40,start}\
+${cpu cpu8}%${tab 80 start}${cpubar cpu8 12} ${color}\
+
+${if_match ${cpu cpu9} > 75}${color red}${else}\
+${if_match ${cpu cpu9} > 50}${color orange}${else}\
+${if_match ${cpu cpu9} > 25}${color yellow}${else}\
+${color green}\
+${endif}${endif}${endif}\
+9${tab 40,start}\
+${cpu cpu9}%${tab 80 start}${cpubar cpu9 12} ${color}\
+
+${if_match ${cpu cpu10} > 75}${color red}${else}\
+${if_match ${cpu cpu10} > 50}${color orange}${else}\
+${if_match ${cpu cpu10} > 25}${color yellow}${else}\
+${color green}\
+${endif}${endif}${endif}\
+10${tab 40,start}\
+${cpu cpu10}%${tab 80 start}${cpubar cpu10 12} ${color}\
+
+${if_match ${cpu cpu11} > 75}${color red}${else}\
+${if_match ${cpu cpu11} > 50}${color orange}${else}\
+${if_match ${cpu cpu11} > 25}${color yellow}${else}\
+${color green}\
+${endif}${endif}${endif}\
+11${tab 40,start}\
+${cpu cpu11}%${tab 80 start}${cpubar cpu11 12} ${color}\
+
+${if_match ${cpu cpu12} > 75}${color red}${else}\
+${if_match ${cpu cpu12} > 50}${color orange}${else}\
+${if_match ${cpu cpu12} > 25}${color yellow}${else}\
+${color green}\
+${endif}${endif}${endif}\
+12${tab 40,start}\
+${cpu cpu12}%${tab 80 start}${cpubar cpu12 12} ${color} 
+]]
