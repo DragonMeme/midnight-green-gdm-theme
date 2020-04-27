@@ -38,7 +38,7 @@ conky.config = {
     draw_outline = false,
     draw_shades = false,
     use_xft = true,
-    font = 'Noto Sans CJK SC Black:bold:size=48',
+    font = 'Noto Sans CJK JP:bold:size=48',
     gap_x = 600,
     gap_y = 450,
     minimum_height = 5,
@@ -60,7 +60,7 @@ conky.config = {
 }
 
 conky.text = [[
-${voffset -70}${font Noto Sans CJK SC Black:size=12}           きょう\
+${voffset -70}${font Noto Sans CJK JP:bold:size=12}           きょう\
                              \
 ${if_match ${time %w} == 0}にち  ${else}\
 ${if_match ${time %w} == 1}げつ  ${else}\
