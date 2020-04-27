@@ -34,10 +34,12 @@ Requisites: GNOME tweaks.
 1.) Copy/move the following folders (`gnome-shell`, `gtk-2.0` and `gtk-3.0`) to your theme folder.
 ```bash
 # If you want to make the theme available to yourself only.
+mkdir ~/.themes
 cp -R gnome-shell gtk-2.0 gtk-3.0 ~/.themes
 
 # Or to every user with the account of your computer (requires at least sudo permissions).
-sudo cp -R gnome-shell gtk-2.0 gtk-3.0 /usr/share/themes
+mkdir /usr/share/themes/midnight-green
+sudo cp -R gnome-shell gtk-2.0 gtk-3.0 /usr/share/themes/midnight-green
 ```
 
 DISCLAIMER:
