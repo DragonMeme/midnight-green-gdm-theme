@@ -12,14 +12,15 @@ cd /usr/share/gnome-shell/theme
 sudo cp ubuntu.css ubuntu.css.bak
 ```
 
-2.) Copy the contents in folder `gdm-theme` that you downloaded to the theme folder.
+2.) Copy the contents in folder `gnome-shell` that you downloaded to the theme folder.
 ```bash
-sudo cp * /usr/share/gnome-shell/theme
+sudo cp ./gnome-shell/* /usr/share/gnome-shell/theme
 ```
 To revert GDM theme back, you can simply copy the original content back to your `ubuntu.css` folder:
 ```bash
 cd /usr/share/gnome-shell/theme
 sudo cp ubuntu.css.bak ubuntu.css
+sudo rm -r common-assets dark-assets
 ```
 
 DISCLAIMER:
